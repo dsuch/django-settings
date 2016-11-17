@@ -14,4 +14,4 @@ def initialize_data(sender, **kwargs):
         if not dataapi.data.exists(name):
             dataapi.data.set(type_name, name, value)
 
-signals.post_migrate.connect(initialize_data, sender=models)
+signals.post_syncdb.connect(initialize_data, sender=models)
